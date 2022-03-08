@@ -1,18 +1,16 @@
 module.exports = function aa(){
-    /**
-     * @track
-     * @param {a:1,b:2} 
-     */
-    function bb(){
-        console.log('bb');
+    function getData(){
+        Promise.resolve({a:1,b:2}).then(res=>{
+            trackFn(res)
+        })
     }
     /**
      * @track
-     * @param {a:1,b:2} 
+     * @param 'click',param 
      * @returns 
      * @aa 
      */
-    function cc(){
+    function trackFn(param){
         console.log('cc');
     }
 }

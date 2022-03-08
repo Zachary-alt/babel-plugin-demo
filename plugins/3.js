@@ -23,9 +23,14 @@ const autoTrackPlugin = declare((api, options, dirname) => {
             }
           })
           if (!state.trackerImportId) {
-            state.trackerImportId = importModule.addDefault(path, options.trackerPath, {
-              nameHint: path.scope.generateUid(options.trackerPath)
-            }).name
+            if(options&&options.trackerPath){
+              state.trackerImportId = importModule.addDefault(path, options.trackerPath, {
+                nameHint: path.scope.generateUid(options.trackerPath)
+              }).name
+            }
+            if(options&&options.trackerMethod){
+              state.trackerImportId = options.trackerMethod
+            }
           }
         }
       },
